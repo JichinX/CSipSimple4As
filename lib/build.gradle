@@ -23,6 +23,9 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
+    lintOptions {
+        abortOnError false
+    }
     useLibrary 'org.apache.http.legacy'
 }
 
