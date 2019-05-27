@@ -17,7 +17,7 @@
  *
  *  You should have received a copy of the GNU General Public License
  *  along with CSipSimple.  If not, see <http://www.gnu.org/licenses/>.
- *  
+ *
  *  This file and this file only is also released under Apache license as an API file
  */
 
@@ -51,7 +51,7 @@ public final class SipManager {
      * Used to bind sip service to configure it.<br/>
      * This method has been deprected and should not be used anymore. <br/>
      * Use content provider approach instead
-     * 
+     *
      * @see SipConfigManager
      */
     public static final String INTENT_SIP_CONFIGURATION = "com.csipsimple.service.SipConfiguration";
@@ -66,12 +66,12 @@ public final class SipManager {
      * If you actually make a call or ask service to do something but wants to
      * unregister, you must defer unregister of your activity using
      * {@link #ACTION_DEFER_OUTGOING_UNREGISTER}.
-     * 
+     *
      * @see ISipService
      * @see #EXTRA_OUTGOING_ACTIVITY
      */
     public static final String INTENT_SIP_SERVICE = "com.csipsimple.service.SipService";
-        
+
     /**
      * Shortcut to turn on / off a sip account.
      * <p>
@@ -139,7 +139,7 @@ public final class SipManager {
      * Action launched to enter global csipsimple settings.<br/>
      */
     public static final String ACTION_UI_PREFS_GLOBAL = "com.csipsimple.ui.action.PREFS_GLOBAL";
-    
+
     // SERVICE BROADCASTS
     /**
      * Broadcastsent when a call is about to be launched.
@@ -225,15 +225,15 @@ public final class SipManager {
     public static final String ACTION_SIP_REQUEST_RESTART = "com.csipsimple.service.ACTION_SIP_REQUEST_RESTART";
     /**
      * Broadcast to send when your activity doesn't allow anymore user to make outgoing calls.<br/>
-     * You have to pass registered {@link #EXTRA_OUTGOING_ACTIVITY} 
-     * 
+     * You have to pass registered {@link #EXTRA_OUTGOING_ACTIVITY}
+     *
      * @see #EXTRA_OUTGOING_ACTIVITY
      */
     public static final String ACTION_OUTGOING_UNREGISTER = "com.csipsimple.service.ACTION_OUTGOING_UNREGISTER";
     /**
      * Broadcast to send when you have launched a sip action (such as make call), but that your app will not anymore allow user to make outgoing calls actions.<br/>
-     * You have to pass registered {@link #EXTRA_OUTGOING_ACTIVITY} 
-     * 
+     * You have to pass registered {@link #EXTRA_OUTGOING_ACTIVITY}
+     *
      * @see #EXTRA_OUTGOING_ACTIVITY
      */
     public static final String ACTION_DEFER_OUTGOING_UNREGISTER = "com.csipsimple.service.ACTION_DEFER_OUTGOING_UNREGISTER";
@@ -268,28 +268,28 @@ public final class SipManager {
      * </ul>
      */
     public static final String ACTION_GET_PHONE_HANDLERS = "com.csipsimple.phone.action.HANDLE_CALL";
-    
+
     /**
      * Plugin action for call management extension. <br/>
-     * Any app that register this plugin and has rights to {@link #PERMISSION_USE_SIP} will appear 
+     * Any app that register this plugin and has rights to {@link #PERMISSION_USE_SIP} will appear
      * in the call cards. <br/>
      * The activity entry in manifest may have following metadata
      * <ul>
      * <li>{@link #EXTRA_SIP_CALL_MIN_STATE} minimum call state for this plugin to be active. Default {@link SipCallSession.InvState#EARLY}.</li>
      * <li>{@link #EXTRA_SIP_CALL_MAX_STATE} maximum call state for this plugin to be active. Default {@link SipCallSession.InvState#CONFIRMED}.</li>
-     * <li>{@link #EXTRA_SIP_CALL_CALL_WAY} bitmask flag for selecting only one way. 
-     *  {@link #BITMASK_IN} for incoming; 
+     * <li>{@link #EXTRA_SIP_CALL_CALL_WAY} bitmask flag for selecting only one way.
+     *  {@link #BITMASK_IN} for incoming;
      *  {@link #BITMASK_OUT} for outgoing.
      *  Default ({@link #BITMASK_IN} | {@link #BITMASK_OUT}) (any way).</li>
-     * </ul> 
+     * </ul>
      * Receiver activity will get an extra with key {@value #EXTRA_CALL_INFO} with a {@link SipCallSession}.
      */
     public static final String ACTION_INCALL_PLUGIN = "com.csipsimple.sipcall.action.HANDLE_CALL_PLUGIN";
-    
+
     public static final String EXTRA_SIP_CALL_MIN_STATE = "com.csipsimple.sipcall.MIN_STATE";
     public static final String EXTRA_SIP_CALL_MAX_STATE = "com.csipsimple.sipcall.MAX_STATE";
     public static final String EXTRA_SIP_CALL_CALL_WAY = "com.csipsimple.sipcall.CALL_WAY";
-    
+
     /**
      * Bitmask to keep media/call coming from outside
      */
@@ -302,9 +302,9 @@ public final class SipManager {
      * Bitmask to keep all media/call whatever incoming/outgoing
      */
     public final static int BITMASK_ALL = BITMASK_IN | BITMASK_OUT;
-    
+
     /**
-     * Plugin action for rewrite numbers. <br/>     
+     * Plugin action for rewrite numbers. <br/>
      * You can expect {@link android.content.Intent#EXTRA_PHONE_NUMBER} as argument for the
      * number to rewrite. <br/>
      * Your receiver must
@@ -316,7 +316,7 @@ public final class SipManager {
      * {@link String} (optional) : Rewritten phone number.</li>
      * </ul>
      */
-    public final static String ACTION_REWRITE_NUMBER = "com.csipsimple.phone.action.REWRITE_NUMBER"; 
+    public final static String ACTION_REWRITE_NUMBER = "com.csipsimple.phone.action.REWRITE_NUMBER";
     /**
      * Plugin action for audio codec.
      */
@@ -427,24 +427,24 @@ public final class SipManager {
      * @see SipCallSession
      */
     public static final String EXTRA_CALL_INFO = "call_info";
-    
+
 
     /**
      * Tell sip service that it's an user interface requesting for outgoing call.<br/>
      * It's an extra to add to sip service start as string representing unique key for your activity.<br/>
      * We advise to use your own component name {@link android.content.ComponentName} to avoid collisions.<br/>
      * Each activity is in charge unregistering broadcasting {@link #ACTION_OUTGOING_UNREGISTER} or {@link #ACTION_DEFER_OUTGOING_UNREGISTER}<br/>
-     * 
+     *
      * @see android.content.ComponentName
      */
     public static final String EXTRA_OUTGOING_ACTIVITY = "outgoing_activity";
-    
+
     /**
      * Extra key to contain an string to path of a file.<br/>
      * @see String
      */
     public static final String EXTRA_FILE_PATH = "file_path";
-    
+
     /**
      * Target in a sip launched call.
      * @see #ACTION_SIP_CALL_LAUNCH
@@ -455,7 +455,7 @@ public final class SipManager {
      * @see #ACTION_SIP_CALL_LAUNCH
      */
     public static final String EXTRA_SIP_CALL_OPTIONS = "call_options";
-    
+
     /**
      * Extra key to contain behavior of outgoing call chooser activity.<br/>
      * In case an account is specified in the outgoing call intent with {@link SipProfile#FIELD_ACC_ID}
@@ -463,7 +463,7 @@ public final class SipManager {
      * this extra parameter allows to determine what is the fallback behavior of
      * the activity. <br/>
      * By default {@link #FALLBACK_ASK}.
-     * Other options : 
+     * Other options :
      */
     public static final String EXTRA_FALLBACK_BEHAVIOR = "fallback_behavior";
     /**
@@ -482,7 +482,7 @@ public final class SipManager {
      * Automatically fallback to any other available account in case requested sip profile is not there.
      */
     public static final int FALLBACK_AUTO_CALL_OTHER = 2;
-    
+
     // Constants
     /**
      * Constant for success return
@@ -528,7 +528,7 @@ public final class SipManager {
 
     /**
      * Ensure capability of the remote sip service to reply our requests <br/>
-     * 
+     *
      * @param service the bound service to check
      * @return true if we can safely use the API
      */

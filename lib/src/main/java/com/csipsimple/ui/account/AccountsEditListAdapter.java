@@ -1,22 +1,22 @@
 /**
  * Copyright (C) 2010-2012 Regis Montoya (aka r3gis - www.r3gis.fr)
  * This file is part of CSipSimple.
- *
- *  CSipSimple is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
- *  If you own a pjsip commercial license you can also redistribute it
- *  and/or modify it under the terms of the GNU Lesser General Public License
- *  as an android library.
- *
- *  CSipSimple is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with CSipSimple.  If not, see <http://www.gnu.org/licenses/>.
+ * <p>
+ * CSipSimple is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * If you own a pjsip commercial license you can also redistribute it
+ * and/or modify it under the terms of the GNU Lesser General Public License
+ * as an android library.
+ * <p>
+ * CSipSimple is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * <p>
+ * You should have received a copy of the GNU General Public License
+ * along with CSipSimple.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 package com.csipsimple.ui.account;
@@ -31,6 +31,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import me.xujichang.lib.csipsimple.R;
+
 import com.csipsimple.api.SipProfile;
 import com.csipsimple.utils.AccountListUtils;
 import com.csipsimple.utils.AccountListUtils.AccountStatusDisplay;
@@ -38,6 +39,9 @@ import com.csipsimple.utils.Log;
 import com.csipsimple.wizards.WizardUtils;
 import com.csipsimple.wizards.WizardUtils.WizardInfo;
 
+/**
+ * 账号列表的Item Adapter
+ */
 public class AccountsEditListAdapter extends SimpleCursorAdapter implements OnClickListener {
 
     public static final class AccountListItemViews {
@@ -67,10 +71,10 @@ public class AccountsEditListAdapter extends SimpleCursorAdapter implements OnCl
     public AccountsEditListAdapter(Context context, Cursor c) {
         super(context,
                 R.layout.accounts_edit_list_item, c,
-                new String[] {
+                new String[]{
                         SipProfile.FIELD_DISPLAY_NAME
                 },
-                new int[] {
+                new int[]{
                         R.id.AccTextView
                 }, 0);
     }
@@ -158,7 +162,7 @@ public class AccountsEditListAdapter extends SimpleCursorAdapter implements OnCl
 
     /**
      * Set draggable mode of the adapter Ie show or hide the grabber icon
-     * 
+     *
      * @param aDraggable if true we enter dragging mode
      */
     public void setDraggable(boolean aDraggable) {
@@ -168,7 +172,7 @@ public class AccountsEditListAdapter extends SimpleCursorAdapter implements OnCl
 
     /**
      * Toggle dragable mode
-     * 
+     *
      * @see AccountsEditList#setDraggable(boolean aDraggable)
      */
     public void toggleDraggable() {
@@ -177,7 +181,7 @@ public class AccountsEditListAdapter extends SimpleCursorAdapter implements OnCl
 
     /**
      * Get draggable mode of the adapter
-     * 
+     *
      * @return true if in dragging mode
      * @see AccountsEditList#setDraggable(boolean aDraggable)
      */
